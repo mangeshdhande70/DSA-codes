@@ -3,9 +3,14 @@ public class Binary_Search {
     public static void main(String[] args) {
 
 
-        int [] arr = {1,2,3,4,5,6,7,8,9};
-        System.out.println(AscendingBinSearch(arr , 9 ,0,arr.length-1));
 
+        // For Ascending Array
+        // int [] arr = {1,2,3,4,5,6,7,8,9};
+        // System.out.println(AscendingBinSearch(arr , 9 ,0,arr.length-1));
+
+        //  For Descending Array
+        int [] arr = {9,8,7,6,5,4,3,2,1};
+        System.out.println(descendingBinSearch(arr , 9 , 0,arr.length-1));
     }
 
 
@@ -21,6 +26,21 @@ public class Binary_Search {
 
         }
         return -1;
+    }
+
+    static int descendingBinSearch(int [] arr , int target , int start , int end)
+    {
+        int mid = start + (end - start)/2;
+        while (start <= end)
+        {
+            if(arr[mid] == target) return mid;
+
+            if (arr[mid] > target) return descendingBinSearch(arr, target, start+1, end);
+
+            if (arr[mid] < target) return descendingBinSearch(arr, target, start, mid-1);
+        }
+        return -1;
+
     }
 
 }
