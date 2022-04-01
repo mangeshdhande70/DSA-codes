@@ -2,17 +2,21 @@ public class Binary_Search {
 
     public static void main(String[] args) {
 
-
-
         // For Ascending Array
         // int [] arr = {1,2,3,4,5,6,7,8,9};
         // System.out.println(AscendingBinSearch(arr , 9 ,0,arr.length-1));
 
         //  For Descending Array
-        int [] arr = {9,8,7,6,5,4,3,2,1};
-        System.out.println(descendingBinSearch(arr , 9 , 0,arr.length-1));
+        int [] arr = {1,2,3,4,7,8,2,1};
+
+         System.out.println(peak(arr));
+       // System.out.println(descendingBinSearch(arr , 9 , 0,arr.length-1));
     }
 
+//    static int mountainArr(int [] arr , int target , int start , int end)
+//    {
+//
+//    }
 
     static int AscendingBinSearch(int [] arr , int target , int start , int end) {
         int mid = start + (end - start) / 2;
@@ -41,6 +45,22 @@ public class Binary_Search {
         }
         return -1;
 
+    }
+
+    static int peak(int [] arr)
+    {
+        int start = 0 , end = arr.length-1;
+
+        while (start < end) {
+            int mid = start + (end - start) / 2;
+            if (arr[mid] < arr[mid + 1]) {
+                start = mid + 1;
+            }
+            else {
+                end = mid;
+            }
+        }
+        return arr[start];
     }
 
 }
